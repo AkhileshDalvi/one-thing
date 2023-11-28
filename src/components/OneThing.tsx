@@ -1,6 +1,10 @@
 import CustomButton from "./CustomButton"
 
-const OneThing = ({ thing, handleCompletedThing }: { thing: string, handleCompletedThing: React.MouseEvent<HTMLButtonElement, MouseEvent> }) => {
+interface IhandleCompletedThing {
+  (handleCompletedThing: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void>;
+}
+
+const OneThing = ({ thing, handleCompletedThing }: { thing: string, handleCompletedThing: IhandleCompletedThing }) => {
   return (
     <>
       <h1 className="text-3xl sm:text-6xl font-bold text-center">{thing}</h1>

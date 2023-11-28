@@ -23,13 +23,13 @@ function App() {
     setIsCompleted(false)
   }
 
-  const handleCompletedThing = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    (e.target as HTMLButtonElement).setAttribute('disabled', "true")
-    setThing(getSuccessMessage())
+  const handleCompletedThing = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> => {
+    (e.target as HTMLButtonElement).setAttribute('disabled', "true");
+    setThing(getSuccessMessage());
     await jsConfetti.addConfetti();
-    (e.target as HTMLButtonElement).removeAttribute('disabled')
-    setThing("")
-    setIsCompleted(true)
+    (e.target as HTMLButtonElement).removeAttribute('disabled');
+    setThing("");
+    setIsCompleted(true);
   }
 
   return (
